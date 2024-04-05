@@ -1,4 +1,9 @@
 import NextAuth from 'next-auth';
+import { NextAuth } from 'next-auth';
+import Auth0 from 'next-auth/providers/auth0';
+import Okta from 'next-auth/providers/okta';
+
+// 引入 Okta 提供者
 
 import { getServerConfig } from '@/config/server';
 
@@ -17,6 +22,21 @@ export const initSSOProviders = () => {
       })
     : [];
 };
+
+// 导入服务器配置
+const { OKTA_CLIENT_ID, OKTA_CLIENT_SECRET, OKTA_ISSUER } = getServerConfig();
+
+const nextAuth = NextAuth({
+  providers: [
+    // ... 其他提供者
+
+    Okta({
+      clientId: OKTA_CLIENT_ID,
+      clientSecret: OKTA_CLIENT_SECRET,
+      issuer: OKTA_ISSUER,
+    }),
+  ],
+});
 
 const nextAuth = NextAuth({
   callbacks: {
