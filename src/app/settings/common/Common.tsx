@@ -111,7 +111,7 @@ const Common = memo<SettingsCommonProps>(({ showAccessCodeConfig, showOAuthLogin
         children: isOAuthLoggedIn ? (
           <Button onClick={handleSignOut}>{t('settingSystem.oauth.signout.action')}</Button>
         ) : (
-          <Button onClick={handleSignIn} type="primary">
+          <Button onClick={() => signIn('okta')} type="primary">
             {t('settingSystem.oauth.signin.action')}
           </Button>
         ),
