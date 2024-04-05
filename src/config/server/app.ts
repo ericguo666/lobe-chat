@@ -76,5 +76,10 @@ export const getAppConfig = () => {
     LANGFUSE_SECRET_KEY: process.env.LANGFUSE_SECRET_KEY || '',
     LANGFUSE_PUBLIC_KEY: process.env.LANGFUSE_PUBLIC_KEY || '',
     LANGFUSE_HOST: process.env.LANGFUSE_HOST || 'https://cloud.langfuse.com',
+
+
+    OKTA_CLIENT_ID: process.env.OKTA_CLIENT_ID || '',
+    OKTA_CLIENT_SECRET: process.env.OKTA_CLIENT_SECRET || '',
+    OKTA_ISSUER: process.env.OKTA_ISSUER || '',
   };
 };
